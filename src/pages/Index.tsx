@@ -31,7 +31,7 @@ const Index = () => {
       <Hero onOpenModal={() => setModalOpen(true)} />
       <TrustStrip />
       <Reels/>
-      <BrandStatement />
+      {/* <BrandStatement /> */}
       <Problem />
       <Solution/>
       <ServicesSection />
