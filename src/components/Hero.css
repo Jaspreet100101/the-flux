@@ -1,0 +1,578 @@
+/* ============================================
+   FONTS
+   ============================================ */
+/* @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,600;1,700&display=swap'); */
+
+/* ============================================
+   RESET
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
+:root {
+  --bg:             #0d0c0c;
+  --text-primary:   #f5f3ef;
+  --text-muted:     #9a9490;
+  --text-dim:       #4a4745;
+  --border-subtle:  rgba(240, 237, 232, 0.10);
+  --accent-purple:  #a78bfa;
+  --accent-blue:    #4146ea;
+
+  /* New premium tokens */
+  --glow-blue:      rgba(65, 70, 234, 0.22);
+  --glow-purple:    rgba(167, 139, 250, 0.14);
+  --shimmer-gold:   rgba(240, 220, 160, 0.06);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: 0 64px;
+  width: 100%;
+  background: var(--bg);
+  pointer-events: auto;
+  text-align: center;
+  isolation: isolate;
+}
+
+/* ── Layer 1: Film grain ── */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Layer 2: Dual ambient orbs ── */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 65% 55% at 20% 55%, var(--glow-blue) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 45% at 80% 42%, var(--glow-purple) 0%, transparent 65%),
+    radial-gradient(ellipse 80% 40% at 50% 90%, rgba(20, 18, 18, 0.9) 0%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+  animation: orb-drift 14s ease-in-out infinite alternate;
+}
+
+@keyframes orb-drift {
+  from { opacity: 0.7; transform: scale(1); }
+  to   { opacity: 1;   transform: scale(1.04); }
+}
+
+/* ── Horizontal rule accent (top) ── */
+.hero-section [data-rule="top"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--border-subtle) 30%,
+    rgba(167, 139, 250, 0.3) 50%,
+    var(--border-subtle) 70%,
+    transparent 100%
+  );
+  z-index: 3;
+}
+
+/* ============================================
+   HERO CONTAINER & CONTENT
+   ============================================ */
+.hero-container {
+  width: 100%;
+  max-width: 1265px;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+  position: relative;
+}
+
+.hero-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+
+  /* Entrance animation */
+  animation: hero-rise 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   EYEBROW LABEL (optional — add if needed)
+   ============================================ */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1.8rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 6px 16px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 100px;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-purple);
+  opacity: 0.9;
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50%       { opacity: 0.3; transform: scale(0.65); }
+}
+
+/* ============================================
+   HERO TITLE
+   ============================================ */
+.hero-title {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.hero-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 1.05;
+  text-align: center;
+}
+
+/* ============================================
+   LINE 1 — "We build personal brands"
+   ============================================ */
+.hero-line-1 {
+  display: block;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(3rem, 8.5vw, 7.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text-primary);
+  user-select: none;
+  text-align: center;
+
+  /* Very subtle top fade-in stagger */
+  animation: hero-rise 1s 0.08s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Italic serif accent word */
+.hero-line-1 .word-accidental {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  opacity: 1;
+}
+
+/* ============================================
+   LINE 2 — "that compound."
+   ============================================ */
+.hero-line-2 {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.22em;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(3rem, 8.5vw, 7.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text-primary);
+  user-select: none;
+  flex-wrap: wrap;
+
+  animation: hero-rise 1s 0.14s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Italic serif accent for "compound." */
+.hero-line-2 .word-engineered {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1em;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+/* ── Gradient highlight on a key word ── */
+.highlight_t {
+  background: linear-gradient(
+    120deg,
+    #a78bfa 0%,
+    #7bb4fc 45%,
+    #a78bfa 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-pan 5s linear infinite;
+}
+
+@keyframes gradient-pan {
+  from { background-position: 0% center; }
+  to   { background-position: 200% center; }
+}
+
+.glow-text {
+  filter: none;
+  text-shadow: none;
+}
+
+/* ============================================
+   HERO SUBTEXT
+   ============================================ */
+.hero-subtext {
+  max-width: 520px;
+  margin: 2.2rem auto 0;
+  text-align: center;
+  line-height: 1.75;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+
+  animation: hero-rise 1s 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-subtext .sub-brand {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.hero-subtext .sub-audience {
+  color: var(--text-muted);
+}
+
+.hero-subtext .sub-highlight-italic {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.hero-subtext .sub-highlight-blue {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2.8rem;
+  flex-wrap: wrap;
+
+  animation: hero-rise 1s 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* PRIMARY — blue gradient pill with glow */
+.btn-primary1 {
+  position: relative;
+  overflow: hidden;
+  padding: 0.875rem 2.3rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #1a56db 0%, #4f8ef7 100%);
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.25s ease;
+  box-shadow:
+    0 0 0 1px rgba(79, 142, 247, 0.25),
+    0 4px 20px rgba(26, 86, 219, 0.35),
+    0 1px 3px rgba(0,0,0,0.4);
+}
+
+/* Shimmer sweep on hover */
+.btn-primary1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent,
+    rgba(255,255,255,0.22),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-primary1:hover::before {
+  left: 160%;
+}
+
+.btn-primary1:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 0 1px rgba(79, 142, 247, 0.35),
+    0 8px 32px rgba(26, 86, 219, 0.45),
+    0 2px 6px rgba(0,0,0,0.4);
+}
+
+.btn-primary1:active {
+  transform: translateY(-1px);
+}
+
+.btn-primary1::after {
+  display: none;
+}
+
+/* SECONDARY — glass pill */
+.btn-secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.875rem 2.3rem;
+  border-radius: 50px;
+  text-decoration: none;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.25s ease;
+}
+
+.btn-secondary::after {
+  content: none;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(240, 237, 232, 0.22);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   METRICS / PROOF STRIP (optional add-on)
+   ============================================ */
+.hero-proof {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+
+  animation: hero-rise 1s 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-proof-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.hero-proof-number {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+
+.hero-proof-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.hero-proof-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--border-subtle);
+}
+
+/* ============================================
+   SCROLL INDICATOR
+   ============================================ */
+.scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  z-index: 3;
+
+  animation: hero-rise 1.2s 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scroll-indicator a {
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.scroll-indicator a:hover {
+  color: var(--text-muted);
+}
+
+/* Animated scroll line */
+.scroll-indicator::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--text-dim), transparent);
+  animation: scroll-line 2s ease-in-out infinite;
+  transform-origin: top;
+}
+
+@keyframes scroll-line {
+  0%   { transform: scaleY(0); opacity: 0; }
+  30%  { opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero-section {
+    padding: 60px 5vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-section {
+    padding: 80px 24px 100px;
+    min-height: 100svh;
+  }
+
+  .hero-line-1,
+  .hero-line-2 {
+    font-size: clamp(2.6rem, 12vw, 3.8rem);
+  }
+
+  .hero-line-2 {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-text-wrapper {
+    gap: 0.1rem;
+  }
+
+  .hero-subtext {
+    font-size: 0.95rem;
+    margin-top: 1.5rem;
+    max-width: 100%;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .btn-primary1,
+  .btn-secondary {
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .hero-proof {
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1400px) {
+  .hero-section {
+    padding: 0 8vw;
+  }
+}

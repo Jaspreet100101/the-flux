@@ -1,0 +1,265 @@
+
+/* ===================== */
+/* NAVBAR BASE */
+/* ===================== */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .navbar-scrolled { */
+  /* background: rgba(10, 10, 10, 0.9); */
+  /* backdrop-filter: blur(12px); */
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.08); */
+/* } */
+
+.navbar-container {
+  max-width: 1200px;
+  margin-top: 0.5rem;
+  padding: 0.9rem 0rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* padding: 12px 24px; */
+  padding: 0.9rem;
+  gap: 40px;
+
+  background: rgba(20, 20, 20, 0.321);
+  backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+/* ===================== */
+/* LOGO */
+/* ===================== */
+
+.navbar-logo {
+  margin-left: 0.9rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+/* ===================== */
+/* DESKTOP LINKS */
+/* ===================== */
+
+.navbar-links {
+  display: flex;
+  gap: 2.3rem;
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  color: #aaa;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  /* background: #7c3aed; */
+  background: linear-gradient(135deg, #1a56db 0%, #4f8ef7 100%);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ===================== */
+/* CTA BUTTON */
+/* ===================== */
+
+.navbar-cta {
+  display: block;
+}
+
+/* .btn-glow {
+  padding: 0.1rem 0.1rem;
+  background: #7c3aed;
+  background: #59a5d8;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+} */
+
+.btn-glow:hover {
+  background: #6d28d9;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+}
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap');
+
+.btn-glow {
+  padding: 0.4rem 0.8rem;
+  background: linear-gradient(135deg, #1a56db 0%, #4f8ef7 100%);
+  border: 1px solid rgba(79, 142, 247, 0.3);
+  border-radius: 50px;
+  color: #f0f4ff;
+  cursor: pointer;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  /* text-transform: uppercase; */
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+  /* Resting glow */
+  box-shadow:
+    0 0 12px rgba(79, 142, 247, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Shimmer sweep on hover */
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 100%
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-glow:hover::before {
+  left: 160%;
+}
+
+.btn-glow:hover {
+  transform: translateY(-2px);
+  border-color: rgba(79, 142, 247, 0.7);
+  box-shadow:
+    0 0 25px rgba(79, 142, 247, 0.45),
+    0 0 60px rgba(79, 142, 247, 0.15),
+    0 8px 20px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.btn-glow:active {
+  transform: translateY(0px);
+  box-shadow:
+    0 0 15px rgba(79, 142, 247, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+/* ===================== */
+/* MOBILE */
+/* ===================== */
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  width: 23rem;
+  border-radius: 20px;
+}
+
+.mobile-menu-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 16px;
+}
+
+.mobile-link {
+  font-size: 1.2rem;
+  color: #aaa;
+  text-decoration: none;
+  padding: 8px 0;
+}
+
+.mobile-link:hover {
+  color: white;
+}
+
+.mobile-btn {
+  margin-top: 16px;
+}
+
+
+
+
+
+
+.LOgo{
+  position: relative;
+  top: -4px;
+  display: flex;
+  height: 38px;
+  width: 88px;
+}
+
+
+
+
+/* ===================== */
+/* RESPONSIVE */
+/* ===================== */
+
+@media (max-width: 768px) {
+
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-cta {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+  .navbar-inner {
+    gap: 60vw;
+  }
+}

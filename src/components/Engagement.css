@@ -1,0 +1,434 @@
+/* ============================================
+   Engagement Section Styles
+   ============================================ */
+
+.engagement-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 40px;
+  overflow: hidden;
+  background: #0d0c0c;
+  isolation: isolate;
+}
+
+/* ── Ambient mesh ── */
+.gradient-mesh-engagement {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 65% 55% at 50% 42%,  rgba(167, 139, 250, 0.055) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 35% at 88% 68%,  rgba(79, 142, 247, 0.04)   0%, transparent 60%),
+    radial-gradient(ellipse 40% 35% at 12% 30%,  rgba(73,  94, 250, 0.04)   0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+  animation: mesh-breathe 13s ease-in-out infinite alternate;
+}
+
+@keyframes mesh-breathe {
+  from { opacity: 0.65; }
+  to   { opacity: 1; }
+}
+
+/* Grain */
+.engagement-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px;
+  opacity: 0.022;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Container ── */
+.engagement-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.engagement-header {
+  margin-bottom: 72px;
+  text-align: center;
+}
+
+.engagement-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: #f5f3ef;
+  margin: 0 0 16px;
+}
+
+.engagement-highlight {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  display: inline-block;
+  background: linear-gradient(120deg, #a78bfa 0%, #7bb4fc 50%, #a78bfa 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 5s linear infinite;
+}
+
+@keyframes text-shimmer {
+  from { background-position: 0%   center; }
+  to   { background-position: 200% center; }
+}
+
+.engagement-subtitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.38);
+  letter-spacing: 0.01em;
+  line-height: 1.72;
+  margin: 0;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================
+   ENGAGEMENT CARDS GRID
+   ============================================ */
+
+.engagement-types {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin-bottom: 64px;
+}
+
+/* ── Base card ── */
+.engagement-card {
+  position: relative;
+  padding: 32px 30px 36px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.025);
+  transition:
+    transform    0.38s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.35s ease,
+    box-shadow   0.38s ease,
+    background   0.35s ease;
+}
+
+/* Top-edge specular */
+.engagement-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.10) 40%,
+    rgba(255, 255, 255, 0.10) 60%,
+    transparent
+  );
+  z-index: 1;
+}
+
+/* Hover top bloom — each variant gets its own tint via custom property */
+.engagement-card::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -30px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--card-bloom, rgba(167,139,250,0.12)) 0%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+/* Shared hover */
+.engagement-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.042);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 0 0 1px var(--card-ring, rgba(167,139,250,0.13));
+}
+
+.engagement-card:hover::after {
+  opacity: 1;
+}
+
+/* ── Per-variant accent colours ── */
+.engagement-blue {
+  --card-bloom: rgba(79, 142, 247, 0.13);
+  --card-ring:  rgba(79, 142, 247, 0.15);
+  --icon-color: rgba(79, 142, 247, 1);
+  --icon-bg:    rgba(79, 142, 247, 0.09);
+  --icon-border:rgba(79, 142, 247, 0.40);
+  --icon-glow:  rgba(79, 142, 247, 0.18);
+  --bar-start:  rgba(79, 142, 247, 0.4);
+  --bar-end:    rgba(167,139,250, 0.3);
+}
+
+.engagement-purple {
+  --card-bloom: rgba(167, 139, 250, 0.13);
+  --card-ring:  rgba(167, 139, 250, 0.15);
+  --icon-color: rgba(167, 139, 250, 1);
+  --icon-bg:    rgba(167, 139, 250, 0.09);
+  --icon-border:rgba(167, 139, 250, 0.40);
+  --icon-glow:  rgba(167, 139, 250, 0.18);
+  --bar-start:  rgba(167,139,250, 0.4);
+  --bar-end:    rgba(79, 142, 247, 0.3);
+}
+
+.engagement-pink {
+  --card-bloom: rgba(244, 114, 182, 0.10);
+  --card-ring:  rgba(244, 114, 182, 0.13);
+  --icon-color: rgba(244, 114, 182, 1);
+  --icon-bg:    rgba(244, 114, 182, 0.08);
+  --icon-border:rgba(244, 114, 182, 0.35);
+  --icon-glow:  rgba(244, 114, 182, 0.16);
+  --bar-start:  rgba(244,114,182, 0.4);
+  --bar-end:    rgba(167,139,250, 0.3);
+}
+
+/* ── Stage label ── */
+.engagement-stage {
+  display: inline-block;
+  font-family: 'DM Mono', 'SF Mono', Consolas, monospace;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Icon wrapper ── */
+.engagement-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  transition:
+    border-color 0.35s ease,
+    background   0.35s ease,
+    box-shadow   0.35s ease,
+    transform    0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.engagement-card:hover .engagement-icon-wrapper {
+  border-color: var(--icon-border);
+  background: var(--icon-bg);
+  box-shadow:
+    0 0 0 3px rgba(167, 139, 250, 0.06),
+    0 0 14px var(--icon-glow);
+  transform: scale(1.08);
+}
+
+.engagement-icon {
+  color: rgba(255, 255, 255, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.35s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.engagement-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.engagement-card:hover .engagement-icon {
+  color: var(--icon-color);
+  transform: rotate(8deg) scale(1.1);
+}
+
+/* ── Card text ── */
+.engagement-card-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  font-weight: 700;
+  color: #f5f3ef;
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  position: relative;
+  z-index: 1;
+}
+
+.engagement-card-description {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(0.8rem, 1.1vw, 0.88rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.38);
+  margin: 0;
+  line-height: 1.72;
+  letter-spacing: 0.005em;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Bottom accent bar ── */
+.engagement-accent {
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--bar-start, rgba(167,139,250,0.4)) 40%,
+    var(--bar-end,   rgba(79,142,247,0.3))  60%,
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.engagement-card:hover .engagement-accent {
+  opacity: 1;
+}
+
+/* ============================================
+   PHILOSOPHY CTA
+   ============================================ */
+
+.engagement-philosophy {
+  text-align: center;
+  padding: 56px 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.018);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Top edge glow */
+.engagement-philosophy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(167, 139, 250, 0.32) 40%,
+    rgba(79, 142, 247, 0.32)  60%,
+    transparent
+  );
+}
+
+/* Bottom bloom */
+.engagement-philosophy::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(167, 139, 250, 0.05);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.philosophy-text {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.75rem, 4.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #f5f3ef;
+  margin: 0;
+  letter-spacing: -0.03em;
+  position: relative;
+  z-index: 1;
+}
+
+/* Strikethrough word */
+.philosophy-strike {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.28);
+  font-weight: 800;
+}
+
+/* Highlighted italic word */
+.philosophy-highlight {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  display: inline-block;
+  background: linear-gradient(120deg, #a78bfa 0%, #7bb4fc 50%, #a78bfa 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 5s linear infinite;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .engagement-section      { padding: 80px 20px; min-height: auto; }
+  .engagement-header       { margin-bottom: 48px; }
+  .engagement-title        { font-size: 2.2rem; margin-bottom: 12px; }
+  .engagement-subtitle     { font-size: 0.95rem; }
+  .engagement-types        { grid-template-columns: 1fr; gap: 14px; margin-bottom: 48px; }
+  .engagement-card         { padding: 26px 24px 30px; border-radius: 16px; }
+  .engagement-icon-wrapper { width: 38px; height: 38px; margin-bottom: 16px; }
+  .engagement-icon svg     { width: 16px; height: 16px; }
+  .engagement-card-title   { font-size: 1rem; }
+  .engagement-philosophy   { padding: 40px 24px; border-radius: 16px; }
+  .philosophy-text         { font-size: 1.6rem; }
+}
+
+@media (max-width: 480px) {
+  .engagement-section      { padding: 70px 16px; }
+  .engagement-header       { margin-bottom: 36px; }
+  .engagement-title        { font-size: 1.85rem; }
+  .engagement-types        { gap: 12px; margin-bottom: 40px; }
+  .engagement-card         { padding: 22px 20px 26px; }
+  .engagement-icon-wrapper { width: 34px; height: 34px; border-radius: 9px; }
+  .philosophy-text         { font-size: 1.35rem; }
+}

@@ -1,0 +1,300 @@
+/* ─────────────────────────────────────────────
+   ShowreelSection — Luxury Cinematic Theme
+   ───────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Geist+Mono:wght@300;400&display=swap');
+
+/* ── Tokens ── */
+:root {
+  --reel-bg:        #0a0a0b;
+  --reel-surface:   #111114;
+  --reel-border:    rgba(255, 255, 255, 0.07);
+  --reel-glow:      rgba(255, 220, 160, 0.18);
+  --reel-accent:    #e8c97a;
+  --reel-muted:     rgba(255, 255, 255, 0.35);
+  --reel-radius:    14px;
+  --card-w:         260px;
+  --card-h:         420px;
+  --card-gap:       22px;
+  --tilt:           -4deg;
+  --band-h:         calc(var(--card-h) + 80px);
+}
+
+/* ── Section shell ── */
+.reel-section {
+  background: var(--reel-bg);
+  overflow: hidden;
+  padding: 100px 0 110px;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Subtle grain overlay */
+.reel-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 180px;
+  opacity: 0.028;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ambient warm glow behind the strip */
+.reel-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 50% at 50% 60%,
+    rgba(232, 201, 122, 0.055) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Header ── */
+.reel-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.reel-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(3rem, 6vw, 5rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 12px;
+  line-height: 1;
+
+  /* Gold shimmer on the text */
+  background: linear-gradient(
+    115deg,
+    #c8a85a 0%,
+    #f0dfa0 38%,
+    #e8c97a 60%,
+    #b8904a 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.reel-sub {
+  font-family: 'Geist Mono', 'Courier New', monospace;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--reel-muted);
+  margin: 0;
+}
+
+/* ── Scroll band ── */
+.reel-band {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: var(--band-h);
+  overflow: hidden;
+
+  /* Fade edges */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+/* ── Track ── */
+.reel-ul {
+  display: flex;
+  align-items: center;
+  gap: var(--card-gap);
+  list-style: none;
+  margin: 0;
+  padding: 40px 0;
+  width: max-content;
+
+  animation: reel-scroll 38s linear infinite;
+}
+
+@keyframes reel-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-1 * (var(--card-w) + var(--card-gap)) * 6)); }
+}
+
+/* ── Card ── */
+.reel-li {
+  position: relative;
+  flex-shrink: 0;
+  width: var(--card-w);
+  height: var(--card-h);
+  border-radius: var(--reel-radius);
+  overflow: hidden;
+  cursor: pointer;
+
+  /* THE TILT — premium signature angle */
+  transform: rotate(var(--tilt)) translateY(0px);
+  transform-origin: center bottom;
+  transition:
+    transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* Layered shadow for depth */
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.4),
+    0 16px 40px rgba(0,0,0,0.55),
+    0 32px 64px rgba(0,0,0,0.35),
+    inset 0 0 0 1px var(--reel-border);
+
+  /* Subtle gloss edge */
+  background: var(--reel-surface);
+}
+
+/* Card border highlight */
+.reel-li::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.10) 0%,
+    transparent 45%,
+    transparent 55%,
+    rgba(255,255,255,0.04) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Bottom gradient vignette */
+.reel-li::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.72) 0%,
+    rgba(0,0,0,0.18) 40%,
+    transparent 70%
+  );
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* ── Hover state ── */
+.reel-li--hovered {
+  transform: rotate(0deg) translateY(-10px) scale(1.04);
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.4),
+    0 24px 56px rgba(0,0,0,0.55),
+    0 48px 80px rgba(0,0,0,0.3),
+    0 0 0 1px rgba(232, 201, 122, 0.35),
+    0 0 40px 4px rgba(232, 201, 122, 0.08);
+  z-index: 10;
+}
+
+.reel-li--hovered::after {
+  opacity: 1;
+}
+
+/* ── Video ── */
+.reel-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.88) saturate(1.05);
+  transition: filter 0.4s ease, transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reel-li--hovered .reel-media {
+  filter: brightness(1) saturate(1.15);
+  transform: scale(1.03);
+}
+
+/* ── "Playing" overlay badge ── */
+.reel-overlay {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  z-index: 4;
+
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 100px;
+  padding: 5px 14px 4px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* Pulse dot */
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+
+.reel-overlay::before {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--reel-accent);
+  animation: pulse-dot 1.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+.reel-overlay--on {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── Accessibility ── */
+@media (prefers-reduced-motion: reduce) {
+  .reel-ul { animation: none; }
+  .reel-li,
+  .reel-li--hovered,
+  .reel-media { transition: none; transform: none; }
+}
