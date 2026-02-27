@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import "./ConversionBlock.css";
 
@@ -7,16 +7,29 @@ interface ConversionBlockProps {
 }
 
 export function ConversionBlock({ onOpenModal }: ConversionBlockProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("in-view");
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="FAQ" className="conversion-section">
       <div className="conversion-container">
 
-        <motion.div
-          className="conversion-card"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <div ref={cardRef} className="conversion-card fade-up">
           {/* Background layers */}
           <div className="conversion-bg" />
           <div className="conversion-radial" />
@@ -24,50 +37,33 @@ export function ConversionBlock({ onOpenModal }: ConversionBlockProps) {
 
           <div className="conversion-content">
 
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
+            <h2 className="stagger-1">
               <span className="highlight">
                 Build a Brand That Compounds.
               </span>
-            </motion.h2>
+            </h2>
 
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-            >
+            <p className="stagger-2">
               This isn't content outsourcing. It's narrative ownership.{" "}
               <br />
               Psychology dictates. Systems execute.
-            </motion.p>
+            </p>
 
-            <motion.button
-              className="conversion-button"
+            <button
+              className="conversion-button stagger-3"
               onClick={onOpenModal}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
             >
               Book a Strategy Call
               <ArrowRight size={20} className="arrow-icon" />
-            </motion.button>
+            </button>
 
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </section>
   );
 }
-
 // import { motion } from "framer-motion";
 // import { ArrowRight } from "lucide-react";
 // import { Button } from "@/components/ui/button";

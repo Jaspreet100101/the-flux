@@ -1,29 +1,7 @@
-import { motion } from "framer-motion";
-// import { Lightbulb, Film, Target } from "lucide-react";
 import { Lightbulb, Film, Clapperboard, Target } from "lucide-react";
 import { ServiceCard } from "./ServiceCard";
 import "./ServicesSection.css";
 
-// const services = [
-//   {
-//     title: "Strategic Growth Consulting",
-//     description:
-//       "We architect growth strategies rooted in positioning, market psychology, and scalable system design.",
-//     icon: Lightbulb,
-//   },
-//   {
-//     title: "Brand Authority & Content Scaling",
-//     description:
-//       "Cinematic storytelling, high-retention content, and authority-building brand narratives engineered for audience trust.",
-//     icon: Film,
-//   },
-//   {
-//     title: "Lead Generation & Conversion Systems",
-//     description:
-//       "Funnels, automation, and client acquisition systems built to convert attention into predictable revenue.",
-//     icon: Target,
-//   },
-// ];
 const services = [
   {
     title: "Brand Positioning Architecture",
@@ -41,7 +19,7 @@ const services = [
     title: "High-Impact Short-Form Execution",
     description:
       "Strategic reels and clips designed to shape perception, elevate positioning, and drive meaningful engagement.",
-    icon: Clapperboard, // or Film if you prefer keeping same import
+    icon: Clapperboard,
   },
   {
     title: "Funnel-Driven Distribution",
@@ -50,24 +28,13 @@ const services = [
     icon: Target,
   },
 ];
+
 export function ServicesSection() {
   return (
     <section id="Results" className="services-section">
       <div className="services-container">
 
-        <motion.div
-          className="services-header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          {/* <h2 className="services-title">
-            Growth Infrastructure Services
-          </h2>
-
-          <p className="services-subtext">
-            Comprehensive systems designed to transform your business into a scalable growth engine.
-          </p> */}
+        <div className="services-header">
           <h2 className="services-title">
             Brand & Narrative Infrastructure
           </h2>
@@ -75,7 +42,7 @@ export function ServicesSection() {
           <p className="services-subtext">
             Positioning architecture, content systems, and distribution frameworks engineered for authority and scalable impact.
           </p>
-        </motion.div>
+        </div>
 
         <div className="services-grid">
           {services.map((service, index) => (
@@ -87,7 +54,6 @@ export function ServicesSection() {
     </section>
   );
 }
-
 
 
 

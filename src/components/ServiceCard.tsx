@@ -1,5 +1,5 @@
 
-import { motion } from "framer-motion";
+
 import { LucideIcon } from "lucide-react";
 import "./ServiceCard.css";
 
@@ -17,16 +17,7 @@ export function ServiceCard({
   index,
 }: ServiceCardProps) {
   return (
-    <motion.div
-      className="service-card"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.15 }}
-      whileHover={{
-        boxShadow: "0 20px 60px -15px rgba(99, 102, 241, 0.2)",
-      }}
-    >
+      <div className="service-card">
       {/* Hover Glow */}
       <div className="service-card-glow" />
 
@@ -34,11 +25,10 @@ export function ServiceCard({
         <div className="service-icon-wrapper">
           <Icon className="service-icon" />
         </div>
-
         <h3 className="service-title">{title}</h3>
         <p className="service-description">{description}</p>
       </div>
-    </motion.div>
+    </div>
   );
 }
 // import { motion } from "framer-motion";

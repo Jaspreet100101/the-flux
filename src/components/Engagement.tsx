@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Handshake, Lightbulb, Zap } from "lucide-react";
 import "./Engagement.css";
 
@@ -30,39 +29,13 @@ export function Engagement() {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
-  };
-
   return (
     <section id="engagement" className="engagement-section">
       <div className="gradient-mesh-engagement" />
 
       <div className="engagement-container">
-        {/* Header */}
-        <motion.div
-          className="engagement-header"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
-        >
+
+        <div className="engagement-header">
           <h2 className="engagement-title">
             Strategic
             <br />
@@ -73,23 +46,15 @@ export function Engagement() {
           <p className="engagement-subtitle">
             Every brand we work with is at a different stage.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Engagement Types */}
-        <motion.div
-          className="engagement-types"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
+        <div className="engagement-types">
           {engagementTypes.map((type, index) => {
             const Icon = type.icon;
             return (
-              <motion.div
+              <div
                 key={index}
                 className={`engagement-card engagement-${type.color}`}
-                // variants={cardVariants}
               >
                 <div className="engagement-stage">{type.stage}</div>
 
@@ -104,25 +69,19 @@ export function Engagement() {
                 </p>
 
                 <div className="engagement-accent" />
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
 
-        {/* Philosophy Footer */}
-        <motion.div
-          className="engagement-philosophy"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          viewport={{ once: true, margin: "-100px" }}
-        >
+        <div className="engagement-philosophy">
           <p className="philosophy-text">
             We don't sell <span className="philosophy-strike">plans</span>.
             <br />
             <span className="philosophy-highlight">We design solutions.</span>
           </p>
-        </motion.div>
+        </div>
+
       </div>
     </section>
   );

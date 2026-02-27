@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Eye, Layers, Zap, Target } from "lucide-react";
 import "./ProcessTimeline.css";
 
@@ -6,29 +5,25 @@ const steps = [
   {
     number: "01",
     title: "Diagnose",
-    description:
-      "We audit positioning, audience leverage, and growth intent.",
+    description: "We audit positioning, audience leverage, and growth intent.",
     icon: Eye,
   },
   {
     number: "02",
     title: "Architect",
-    description:
-      "We design your narrative structure and content frameworks.",
+    description: "We design your narrative structure and content frameworks.",
     icon: Layers,
   },
   {
     number: "03",
     title: "Execute",
-    description:
-      "We produce and refine high-impact content.",
+    description: "We produce and refine high-impact content.",
     icon: Zap,
   },
   {
     number: "04",
     title: "Compound",
-    description:
-      "We optimize for authority, not vanity metrics.",
+    description: "We optimize for authority, not vanity metrics.",
     icon: Target,
   },
 ];
@@ -38,55 +33,36 @@ export function ProcessTimeline() {
     <section id="Approach" className="process-section">
       <div className="process-container">
 
-        <motion.div
-          className="process-header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <div className="process-header">
           <h2>How It Works</h2>
           <p>
             A proven framework for building sustainable, scalable growth systems.
           </p>
-        </motion.div>
+        </div>
 
         <div className="timeline-wrapper">
           <div className="timeline-line" />
 
           <div className="timeline-steps">
             {steps.map((step, index) => (
-              <motion.div
+              <div
                 key={step.number}
-                className={`timeline-step ${
-                  index % 2 === 1 ? "reverse" : ""
-                }`}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
+                className={`timeline-step ${index % 2 === 1 ? "reverse" : ""}`}
               >
-                {/* Content */}
                 <div className="timeline-content">
-                  <span className="step-number">
-                    STEP {step.number}
-                  </span>
+                  <span className="step-number">STEP {step.number}</span>
                   <h3>{step.title}</h3>
                   <p>{step.description}</p>
                 </div>
 
-                {/* Icon */}
                 <div className="timeline-icon-wrapper">
-                  <motion.div
-                    className="timeline-icon"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                  >
+                  <div className="timeline-icon">
                     <step.icon size={30} />
-                  </motion.div>
+                  </div>
                 </div>
 
-                {/* Spacer */}
                 <div className="timeline-spacer" />
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

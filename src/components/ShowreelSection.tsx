@@ -1,5 +1,3 @@
-
-
 import { useState, useRef, useEffect } from "react";
 import "./ShowreelSection.css";
 
@@ -15,16 +13,7 @@ const reels: ReelItem[] = [
   { id: "4", videoSrc: "/v4.mp4" },
   { id: "5", videoSrc: "/v2.mp4" },
   { id: "6", videoSrc: "/v3.mp4" },
-  { id: "7", videoSrc: "/v4.mp4" },
-  { id: "8", videoSrc: "/v2.mp4" },
-  { id: "9", videoSrc: "/v3.mp4" },
-  { id: "10", videoSrc: "/v4.mp4" },
-  { id: "11", videoSrc: "/v2.mp4" },
-  { id: "12", videoSrc: "/v3.mp4" },
-  { id: "13", videoSrc: "/v4.mp4" },
-  { id: "14", videoSrc: "/v2.mp4" },
-  { id: "15", videoSrc: "/v3.mp4" },
-  { id: "16", videoSrc: "/v4.mp4" }
+  { id: "7", videoSrc: "/v4.mp4" }
 ];
 
 // Triplicate for seamless loop — needs enough cards to fill viewport width
