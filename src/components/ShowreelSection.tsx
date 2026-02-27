@@ -1,4 +1,6 @@
-import { useRef, useEffect } from "react";
+
+
+import { useState, useRef, useEffect } from "react";
 import "./ShowreelSection.css";
 
 interface ReelItem {
@@ -11,19 +13,25 @@ const reels: ReelItem[] = [
   { id: "2", videoSrc: "/v2.mp4" },
   { id: "3", videoSrc: "/v3.mp4" },
   { id: "4", videoSrc: "/v4.mp4" },
-  { id: "5", videoSrc: "/v5.mp4" },
-  { id: "6", videoSrc: "/v6.mp4" },
+  { id: "5", videoSrc: "/v2.mp4" },
+  { id: "6", videoSrc: "/v3.mp4" },
+  { id: "7", videoSrc: "/v4.mp4" },
+  { id: "8", videoSrc: "/v2.mp4" },
+  { id: "9", videoSrc: "/v3.mp4" },
+  { id: "10", videoSrc: "/v4.mp4" },
+  { id: "11", videoSrc: "/v2.mp4" },
+  { id: "12", videoSrc: "/v3.mp4" },
+  { id: "13", videoSrc: "/v4.mp4" },
+  { id: "14", videoSrc: "/v2.mp4" },
+  { id: "15", videoSrc: "/v3.mp4" },
+  { id: "16", videoSrc: "/v4.mp4" }
 ];
 
-// Triplicate for seamless loop
+// Triplicate for seamless loop — needs enough cards to fill viewport width
 const looped = [...reels, ...reels, ...reels];
 
-/*
- * ReelCard — purely visual, no interaction.
- * Videos autoplay muted; no hover states since the band
- * is pointer-events:none and acts as a background element.
- */
 function ReelCard({ reel }: { reel: ReelItem }) {
+  const [hovered, setHovered] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -31,7 +39,11 @@ function ReelCard({ reel }: { reel: ReelItem }) {
   }, []);
 
   return (
-    <li className="reel-li">
+    <li
+      className={`reel-li ${hovered ? "reel-li--hovered" : ""}`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
       <video
         ref={videoRef}
         src={reel.videoSrc}
@@ -41,25 +53,37 @@ function ReelCard({ reel }: { reel: ReelItem }) {
         playsInline
         autoPlay
       />
+      {/* <span className={`reel-overlay ${hovered ? "reel-overlay--on" : ""}`}>
+        Playing
+      </span> */}
     </li>
   );
 }
 
 export function Reels() {
+  const trackRef = useRef<HTMLUListElement>(null);
+
+  const handleMouseEnter = () => {
+    if (trackRef.current) trackRef.current.style.animationPlayState = "paused";
+  };
+  const handleMouseLeave = () => {
+    if (trackRef.current) trackRef.current.style.animationPlayState = "running";
+  };
+
   return (
     <section className="reel-section">
       <div className="reel-header">
         <h2 className="reel-title">Reels</h2>
-        <p className="reel-sub">Selected works</p>
+        {/* <p className="reel-sub">Hover to preview · Auto-playing</p> */}
       </div>
 
-      {/*
-        * pointer-events:none on .reel-band means NO mouse events
-        * reach this div or anything inside it. The onMouseEnter/Leave
-        * that was here before was silently dead — removed for clarity.
-        */}
       <div className="reel-band">
-        <ul className="reel-ul">
+        <ul
+          ref={trackRef}
+          className="reel-ul"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           {looped.map((reel, i) => (
             <ReelCard key={`${reel.id}-${i}`} reel={reel} />
           ))}
@@ -68,90 +92,6 @@ export function Reels() {
     </section>
   );
 }
-
-
-// import { useState, useRef, useEffect } from "react";
-// import "./ShowreelSection.css";
-
-// interface ReelItem {
-//   id: string;
-//   videoSrc: string;
-// }
-
-// const reels: ReelItem[] = [
-//   { id: "1", videoSrc: "/v1.mp4" },
-//   { id: "2", videoSrc: "/v2.mp4" },
-//   { id: "3", videoSrc: "/v3.mp4" },
-//   { id: "4", videoSrc: "/v4.mp4" },
-//   { id: "5", videoSrc: "/v5.mp4" },
-//   { id: "6", videoSrc: "/v6.mp4" },
-// ];
-
-// // Triplicate for seamless loop — needs enough cards to fill viewport width
-// const looped = [...reels, ...reels, ...reels];
-
-// function ReelCard({ reel }: { reel: ReelItem }) {
-//   const [hovered, setHovered] = useState(false);
-//   const videoRef = useRef<HTMLVideoElement>(null);
-
-//   useEffect(() => {
-//     videoRef.current?.play().catch(() => {});
-//   }, []);
-
-//   return (
-//     <li
-//       className={`reel-li ${hovered ? "reel-li--hovered" : ""}`}
-//       onMouseEnter={() => setHovered(true)}
-//       onMouseLeave={() => setHovered(false)}
-//     >
-//       <video
-//         ref={videoRef}
-//         src={reel.videoSrc}
-//         className="reel-media"
-//         muted
-//         loop
-//         playsInline
-//         autoPlay
-//       />
-//       <span className={`reel-overlay ${hovered ? "reel-overlay--on" : ""}`}>
-//         Playing
-//       </span>
-//     </li>
-//   );
-// }
-
-// export function Reels() {
-//   const trackRef = useRef<HTMLUListElement>(null);
-
-//   const handleMouseEnter = () => {
-//     if (trackRef.current) trackRef.current.style.animationPlayState = "paused";
-//   };
-//   const handleMouseLeave = () => {
-//     if (trackRef.current) trackRef.current.style.animationPlayState = "running";
-//   };
-
-//   return (
-//     <section className="reel-section">
-//       <div className="reel-header">
-//         <h2 className="reel-title">Reels</h2>
-//         <p className="reel-sub">Hover to preview · Auto-playing</p>
-//       </div>
-
-//       <div className="reel-band">
-//         <ul
-//           ref={trackRef}
-//           className="reel-ul"
-//           onMouseEnter={handleMouseEnter}
-//           onMouseLeave={handleMouseLeave}
-//         >
-//           {looped.map((reel, i) => (
-//             <ReelCard key={`${reel.id}-${i}`} reel={reel} />
-//           ))}
-//         </ul>
-//       </div>
-//     </section>
-//   );
-// }
 
 
 
