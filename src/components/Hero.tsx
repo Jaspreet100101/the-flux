@@ -35,9 +35,9 @@ export function Hero({ onOpenModal }: HeroProps) {
             <div className="hero-text-wrapper">
 
               <motion.span className="hero-line-1">
-                We build {" "}
-                <span className="word-accidental">personal </span>
-                <span className="word2 word-accidental">brands</span>
+                We Engineer {" "}
+                <span className="word-accidental">Compounding </span>
+                <span className="word2 word-accidental">Authority.</span>
               </motion.span>
 
               {/* <motion.span className="hero-line-spacer" /> */}
