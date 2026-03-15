@@ -1,3 +1,52 @@
 html {
   scroll-behavior: smooth;
 }
+/* ============================================
+   PREMIUM GLOBAL SCROLLBAR
+   ============================================ */
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* track */
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+/* thumb */
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #c7a27a,
+    #8c6a52
+  );
+  border-radius: 20px;
+  border: 2px solid #0a0a0a;
+}
+
+/* hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #d4b18c,
+    #a17858
+  );
+
+  box-shadow:
+    0 0 8px rgba(176,137,104,0.5);
+}
+
+/* ============================================
+   FIREFOX
+   ============================================ */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #8c6a52 #0a0a0a;
+}

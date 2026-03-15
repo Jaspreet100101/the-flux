@@ -5,26 +5,26 @@ export function Engagement() {
   const engagementTypes = [
     {
       icon: Lightbulb,
-      stage: "Stage One",
-      title: "Positioning Clarity",
+      stage: "Phase 01",
+      title: "Emergent",
       description:
-        "Some need to understand their unique market position and core narrative foundation.",
+        "For brands finding their voice. We focus on psychological positioning and building the audience foundation, bridging the gap between what you do and why they care.",
       color: "blue",
     },
     {
       icon: Zap,
-      stage: "Stage Two",
-      title: "Narrative Infrastructure",
+      stage: "Phase 02",
+      title: "Established",
       description:
-        "Some need structured content systems and distribution frameworks that compound.",
+        "For brands ready to dominate. We build content ecosystems and high-intent conversion systems to scale reach without losing your brand’s soul.",
       color: "purple",
     },
     {
       icon: Handshake,
-      stage: "Stage Three",
-      title: "Full-Scale Execution",
+      stage: "Custom Scope",
+      title: "Strategic Execution",
       description:
-        "Some need complete authority engines with execution and distribution alignment.",
+        "We don’t offer fixed packages. Every engagement is scoped around your exact bottleneck so the solution solves the real constraint holding your growth back.",
       color: "pink",
     },
   ];
@@ -44,7 +44,7 @@ export function Engagement() {
             Not Packages.
           </h2>
           <p className="engagement-subtitle">
-            Every brand we work with is at a different stage.
+            We build scopes around your bottleneck — nothing more, nothing less.
           </p>
         </div>
 
@@ -76,7 +76,7 @@ export function Engagement() {
 
         <div className="engagement-philosophy">
           <p className="philosophy-text">
-            We don't sell <span className="philosophy-strike">plans</span>.
+            We don't sell <span className="philosophy-strike">packages</span>.
             <br />
             <span className="philosophy-highlight">We design solutions.</span>
           </p>

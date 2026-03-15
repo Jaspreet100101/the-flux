@@ -41,7 +41,7 @@ export function Problem() {
       <div className="problem-container">
 
         <div className="problem-header">
-          <span className="problem-badge">Features</span>
+          {/* <span className="problem-badge">Features</span> */}
 
           <h2 className="problem-title">
             Reasons <span className="problem-highlight">Creators</span> and{" "}

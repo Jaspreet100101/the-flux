@@ -24,7 +24,7 @@ export function Solution() {
             </span>
           </p>
         </div>
-
+{/* 
         <div className="solution-content">
           <h2 className="solution-title">
             The Flux builds{" "}
@@ -42,7 +42,7 @@ export function Solution() {
               <span className="benefit-text">{benefit}</span>
             </div>
           ))}
-        </div>
+        </div> */}
 
         <div className="solution-conclusion">
           <p className="conclusion-text">

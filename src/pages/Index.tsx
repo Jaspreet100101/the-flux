@@ -5,7 +5,7 @@ import { TrustStrip } from "@/components/TrustStrip";
 import { ServicesSection } from "@/components/ServicesSection";
 // import { CaseStudySection } from "@/components/CaseStudySection";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
-import { BrandStatement } from "@/components/BrandStatement";
+// import { BrandStatement } from "@/components/BrandStatement";
 import { ConversionBlock } from "@/components/ConversionBlock";
 import { Footer } from "@/components/Footer";
 import { OnboardingModal } from "@/components/OnboardingModal";
@@ -20,6 +20,7 @@ import { HowItWorks } from "@/components/Howitworks";
 import { Investment } from "@/components/Investment";
 import { FAQ } from "@/components/Faq";
 import { Reels } from "@/components/ShowreelSection";
+import LogoStrip from "@/components/LogoStrip";
 
 const Index = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -29,18 +30,19 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar onOpenModal={() => setModalOpen(true)} />
       <Hero onOpenModal={() => setModalOpen(true)} />
+      <LogoStrip/>
       <TrustStrip />
-      <Reels/>
+      {/* <Reels/> */}
       {/* <BrandStatement /> */}
       <Problem />
       <Solution/>
-      <ServicesSection />
+      {/* <ServicesSection /> */}
       {/* <CaseStudySection /> */}
       <Results/>
       <ProcessTimeline />
       <Differentiation/>
       <Engagement/>
-      <HowItWorks/>
+      {/* <HowItWorks/> */}
       <Investment onOpenModal={() => setModalOpen(true)} />
       <FAQ/>
       <ConversionBlock onOpenModal={() => setModalOpen(true)} />

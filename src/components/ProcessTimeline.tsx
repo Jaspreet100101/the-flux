@@ -1,30 +1,24 @@
-import { Eye, Layers, Zap, Target } from "lucide-react";
+import { Crosshair, Grid3X3, TrendingUp } from "lucide-react";
 import "./ProcessTimeline.css";
 
 const steps = [
   {
     number: "01",
     title: "Diagnose",
-    description: "We audit positioning, audience leverage, and growth intent.",
-    icon: Eye,
+    description: "Identify positioning gaps and leverage potential.",
+    icon: Crosshair,
   },
   {
     number: "02",
     title: "Architect",
-    description: "We design your narrative structure and content frameworks.",
-    icon: Layers,
+    description: "Engineering your unique content frameworks.",
+    icon: Grid3X3,
   },
   {
     number: "03",
     title: "Execute",
-    description: "We produce and refine high-impact content.",
-    icon: Zap,
-  },
-  {
-    number: "04",
-    title: "Compound",
-    description: "We optimize for authority, not vanity metrics.",
-    icon: Target,
+    description: "Produce high-impact assets refined by authority.",
+    icon: TrendingUp,
   },
 ];
 
@@ -33,13 +27,20 @@ export function ProcessTimeline() {
     <section id="Approach" className="process-section">
       <div className="process-container">
 
+        {/* Pill Tag */}
+        {/* <div className="process-pill">Process</div> */}
+
+        {/* Header */}
         <div className="process-header">
-          <h2>How It Works</h2>
+          <h2>
+            Built for <em>Leverage</em>. Understood in Days.
+          </h2>
           <p>
-            A proven framework for building sustainable, scalable growth systems.
+            Begin your narrative journey in three structural steps.
           </p>
         </div>
 
+        {/* Timeline */}
         <div className="timeline-wrapper">
           <div className="timeline-line" />
 
@@ -67,10 +68,88 @@ export function ProcessTimeline() {
           </div>
         </div>
 
+        {/* CTA Button */}
+        {/* <div className="process-cta">
+          <button className="process-button">Claim Now</button>
+        </div> */}
+
       </div>
     </section>
   );
 }
+// import { Eye, Layers, Zap, Target } from "lucide-react";
+// import "./ProcessTimeline.css";
+
+// const steps = [
+//   {
+//     number: "01",
+//     title: "Diagnose",
+//     description: "We audit positioning, audience leverage, and growth intent.",
+//     icon: Eye,
+//   },
+//   {
+//     number: "02",
+//     title: "Architect",
+//     description: "We design your narrative structure and content frameworks.",
+//     icon: Layers,
+//   },
+//   {
+//     number: "03",
+//     title: "Execute",
+//     description: "We produce and refine high-impact content.",
+//     icon: Zap,
+//   },
+//   {
+//     number: "04",
+//     title: "Compound",
+//     description: "We optimize for authority, not vanity metrics.",
+//     icon: Target,
+//   },
+// ];
+
+// export function ProcessTimeline() {
+//   return (
+//     <section id="Approach" className="process-section">
+//       <div className="process-container">
+
+//         <div className="process-header">
+//           <h2>How It Works</h2>
+//           <p>
+//             A proven framework for building sustainable, scalable growth systems.
+//           </p>
+//         </div>
+
+//         <div className="timeline-wrapper">
+//           <div className="timeline-line" />
+
+//           <div className="timeline-steps">
+//             {steps.map((step, index) => (
+//               <div
+//                 key={step.number}
+//                 className={`timeline-step ${index % 2 === 1 ? "reverse" : ""}`}
+//               >
+//                 <div className="timeline-content">
+//                   <span className="step-number">STEP {step.number}</span>
+//                   <h3>{step.title}</h3>
+//                   <p>{step.description}</p>
+//                 </div>
+
+//                 <div className="timeline-icon-wrapper">
+//                   <div className="timeline-icon">
+//                     <step.icon size={30} />
+//                   </div>
+//                 </div>
+
+//                 <div className="timeline-spacer" />
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+
+//       </div>
+//     </section>
+//   );
+// }
 // import { motion } from "framer-motion";
 // import { Search, Compass, Rocket, TrendingUp } from "lucide-react";
 

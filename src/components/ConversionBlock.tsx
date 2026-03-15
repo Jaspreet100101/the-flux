@@ -26,7 +26,7 @@ export function ConversionBlock({ onOpenModal }: ConversionBlockProps) {
   }, []);
 
   return (
-    <section id="FAQ" className="conversion-section">
+    <section  className="conversion-section">
       <div className="conversion-container">
 
         <div ref={cardRef} className="conversion-card fade-up">

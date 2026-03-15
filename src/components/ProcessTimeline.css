@@ -16,7 +16,7 @@
 }
 
 /* ── Ambient mesh ── */
-.process-section::before {
+/* .process-section::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -27,7 +27,7 @@
   pointer-events: none;
   z-index: 0;
   animation: mesh-breathe 13s ease-in-out infinite alternate;
-}
+} */
 
 @keyframes mesh-breathe {
   from { opacity: 0.65; }

@@ -17,8 +17,8 @@ interface NavbarProps {
 // ];
 const navItems = [
   { label: "Home", href: "#home" },
-  { label: "Results", href: "#Results" },
   { label: "Work", href: "#work" },
+  { label: "Results", href: "#Results" },
   { label: "Approach", href: "#Approach" },
   { label: "FAQ", href: "#FAQ" },
 ];
