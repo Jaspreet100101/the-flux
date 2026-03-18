@@ -8,7 +8,7 @@ export function Engagement() {
       stage: "Phase 01",
       title: "Emergent",
       description:
-        "For brands finding their voice. We focus on psychological positioning and building the audience foundation, bridging the gap between what you do and why they care.",
+        "For brands finding their voice. We focus on psychological positioning and building the audience foundation, bridging the gap between what you do and why they care",
       color: "blue",
     },
     {
@@ -16,7 +16,7 @@ export function Engagement() {
       stage: "Phase 02",
       title: "Established",
       description:
-        "For brands ready to dominate. We build content ecosystems and high-intent conversion systems to scale reach without losing your brand’s soul.",
+        "For brands ready to dominate. We build content ecosystems and high-intent conversion systems to scale reach without losing your brand’s soul",
       color: "purple",
     },
     {
@@ -24,7 +24,7 @@ export function Engagement() {
       stage: "Custom Scope",
       title: "Strategic Execution",
       description:
-        "We don’t offer fixed packages. Every engagement is scoped around your exact bottleneck so the solution solves the real constraint holding your growth back.",
+        "We don’t offer fixed packages. Every engagement is scoped around your exact bottleneck so the solution solves the real constraint holding your growth back",
       color: "pink",
     },
   ];
@@ -39,12 +39,12 @@ export function Engagement() {
           <h2 className="engagement-title">
             Strategic
             <br />
-            <span className="engagement-highlight">Partnerships.</span>
+            <span className="engagement-highlight">Partnerships</span>
             <br />
-            Not Packages.
+            Not Packages
           </h2>
           <p className="engagement-subtitle">
-            We build scopes around your bottleneck — nothing more, nothing less.
+            We build scopes around your bottleneck — nothing more, nothing less
           </p>
         </div>
 
@@ -76,9 +76,9 @@ export function Engagement() {
 
         <div className="engagement-philosophy">
           <p className="philosophy-text">
-            We don't sell <span className="philosophy-strike">packages</span>.
+            We don't sell <span className="philosophy-strike">packages</span>
             <br />
-            <span className="philosophy-highlight">We design solutions.</span>
+            <span className="philosophy-highlight">We design solutions</span>
           </p>
         </div>
 

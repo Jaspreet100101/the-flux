@@ -40,7 +40,7 @@ export default function LogoStrip() {
             {/* Subtext */}
             <p className="logo-strip-sub">
                 Worked with founders, creators and operators
-                building serious brands.
+                building serious brands
             </p>
 
             {/* Scrolling logos */}

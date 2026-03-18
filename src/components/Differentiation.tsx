@@ -6,22 +6,22 @@ export function Differentiation() {
     {
       icon: Zap,
       title: "Built for Leverage",
-      description: "Every piece moves perception forward.",
+      description: "Every piece moves perception forward",
     },
     {
       icon: Heart,
       title: "Retention-First Strategy",
-      description: "We optimize for depth, not dopamine spikes.",
+      description: "We optimize for depth, not dopamine spikes",
     },
     {
       icon: Crown,
       title: "Positioning Over Popularity",
-      description: "Attention without authority is fragile.",
+      description: "Attention without authority is fragile",
     },
     {
       icon: Cog,
       title: "Systemized Growth",
-      description: "No random posting. Structured compounding.",
+      description: "No random posting. Structured compounding",
     },
   ];
 
@@ -33,9 +33,9 @@ export function Differentiation() {
 
         <div className="differentiation-header">
           <h2 className="differentiation-tagline">
-            <span className="tagline-primary">Psychology dictates.</span>
+            <span className="tagline-primary">Psychology dictates</span>
             <br />
-            <span className="tagline-secondary">Systems execute.</span>
+            <span className="tagline-secondary">Systems execute</span>
           </h2>
         </div>
 
@@ -61,7 +61,7 @@ export function Differentiation() {
         <div className="differentiation-footer">
           <p className="footer-text">
             This is how we build{" "}
-            <span className="footer-highlight">brands that last.</span>
+            <span className="footer-highlight">brands that last</span>
           </p>
         </div>
 

@@ -39,14 +39,14 @@ export function ConversionBlock({ onOpenModal }: ConversionBlockProps) {
 
             <h2 className="stagger-1">
               <span className="highlight">
-                Build a Brand That Compounds.
+                Build a Brand That Compounds
               </span>
             </h2>
 
             <p className="stagger-2">
-              This isn't content outsourcing. It's narrative ownership.{" "}
+              This isn't content outsourcing. It's narrative ownership{" "}
               <br />
-              Psychology dictates. Systems execute.
+              Psychology dictates. Systems execute
             </p>
 
             <button

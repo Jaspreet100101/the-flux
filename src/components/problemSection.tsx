@@ -49,7 +49,7 @@ export function Problem() {
           </h2>
 
           <p className="problem-subtitle">
-            Once you try it, you'll never go anywhere else for video editing. Seriously.
+            Once you try it, you'll never go anywhere else for video editing. Seriously
           </p>
         </div>
 

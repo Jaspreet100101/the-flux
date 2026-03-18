@@ -7,19 +7,19 @@ export function HowItWorks() {
       number: "01",
       icon: MessageSquare,
       title: "Strategy Call",
-      description: "We assess alignment, positioning, and leverage potential.",
+      description: "We assess alignment, positioning, and leverage potential",
     },
     {
       number: "02",
       icon: Lightbulb,
       title: "Custom Narrative Blueprint",
-      description: "If aligned, we craft a tailored proposal built around your objectives.",
+      description: "If aligned, we craft a tailored proposal built around your objectives",
     },
     {
       number: "03",
       icon: Rocket,
       title: "Structured Execution",
-      description: "Clear deliverables. Clear timelines. Clear outcomes.",
+      description: "Clear deliverables Clear timelines Clear outcomes",
     },
   ];
 
@@ -61,9 +61,9 @@ export function HowItWorks() {
 
         <div className="how-it-works-footer">
           <p className="footer-statement">
-            No guessing. <span className="footer-accent">No surprises.</span>
+            No guessing <span className="footer-accent">No surprises</span>
             <br />
-            <span className="footer-secondary">Just clarity and results.</span>
+            <span className="footer-secondary">Just clarity and results</span>
           </p>
         </div>
 

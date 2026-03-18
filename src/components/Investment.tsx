@@ -10,17 +10,17 @@ export function Investment({ onOpenModal }: InvestProps) {
     {
       icon: TrendingUp,
       label: "Scope",
-      description: "From positioning to full-scale execution.",
+      description: "From positioning to full-scale execution",
     },
     {
       icon: Zap,
       label: "Intensity",
-      description: "Monthly sprints to continuous partnership.",
+      description: "Monthly sprints to continuous partnership",
     },
     {
       icon: Brain,
       label: "Narrative Complexity",
-      description: "Emerging brands to established market leaders.",
+      description: "Emerging brands to established market leaders",
     },
   ];
 
@@ -39,7 +39,7 @@ export function Investment({ onOpenModal }: InvestProps) {
         </div>
 
         <p className="investment-statement">
-          Engagements are built around your specific needs — not generic packages.
+          Engagements are built around your specific needs — not generic packages
         </p>
 
         <div className="factors-grid">
@@ -69,9 +69,9 @@ export function Investment({ onOpenModal }: InvestProps) {
           </button>
 
           <p className="cta-subtext">
-            We'll assess your situation, timeline, and goals.
+            We'll assess your situation, timeline, and goals
             <br />
-            No obligation. Just clarity.
+            No obligation Just clarity
           </p>
         </div>
 

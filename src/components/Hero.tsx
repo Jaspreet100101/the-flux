@@ -24,13 +24,14 @@ export function Hero({ onOpenModal }: HeroProps) {
             <div className="hero-text-wrapper">
 
               <motion.span className="hero-line-1">
-                We Build And{" "}
-                <span className="word-accidental">Engineer</span>
+                We {" "}
+                <span className="word-accidental">Engineer </span>
               </motion.span>
 
-              <motion.span className="hero-line-2 highlight_t glow-text">
-                <span className="word-engineered">Compounding</span>
-                Authority.{" "}
+              <motion.span className="hero-line-2 ">
+                Compounding{" "}
+                <span className="word-engineered"></span>
+                Authority{" "}
               </motion.span>
 
             </div>
@@ -43,15 +44,14 @@ export function Hero({ onOpenModal }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.75 }}
           >
             <span className="sub-highlight-italic">
-              Systems for visibility.
+              Systems for visibility
             </span>{" "}
             <span className="sub-highlight-blue">
-              Architecture for leverage.
+              Architecture for leverage
             </span>
             <br />
-            <br />
             <span className="sub-brand">
-              We don't chase trends—we design authority.
+              We don't chase trends—we design authority
             </span>
           </motion.p>
 

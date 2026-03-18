@@ -75,7 +75,7 @@ export function FAQ() {
             <br />
             <span className="faq-highlight">Questions</span>
           </h2>
-          <p className="faq-subtitle">Clear answers. No fluff.</p>
+          <p className="faq-subtitle">Clear answers No fluff</p>
         </div>
 
         <div className="faq-list">
@@ -106,7 +106,7 @@ export function FAQ() {
           <p className="footer-text">
             Still have questions?
             <br />
-            <span className="footer-link-text">Let's talk during a Strategy Call.</span>
+            <span className="footer-link-text">Let's talk during a Strategy Call</span>
           </p>
         </div>
 

@@ -17,10 +17,10 @@ export function Solution() {
 
         <div className="solution-header">
           <p className="solution-intro">
-            We don't edit videos.
+            We don't edit videos
             <br />
             <span className="solution-intro-highlight">
-              We design narrative systems.
+              We design narrative systems
             </span>
           </p>
         </div>
@@ -46,10 +46,10 @@ export function Solution() {
 
         <div className="solution-conclusion">
           <p className="conclusion-text">
-            This is not{" "}
-            <span className="conclusion-emphasis">volume editing.</span>
+            <span className="conclusion-highlight">This is controlled growth</span>
             <br />
-            <span className="conclusion-highlight">This is controlled growth.</span>
+            This is not{" "}
+            <span className="conclusion-emphasis">volume editing</span>
           </p>
         </div>
 

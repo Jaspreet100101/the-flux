@@ -15,37 +15,37 @@ export function Results() {
       icon: Compass,
       title: "Narrative Architecture",
       description:
-        "We don’t just create content; we build the map. We bridge the gap between your raw expertise and your audience’s psychological needs.",
+        "We don’t just create content; we build the map. We bridge the gap between your raw expertise and your audience’s psychological needs",
     },
     {
       icon: Activity,
       title: "Psychological Resonance",
       description:
-        "Every word is engineered to build immediate authority. We architect how your audience perceives you, ensuring your voice sticks.",
+        "Every word is engineered to build immediate authority. We architect how your audience perceives you, ensuring your voice sticks",
     },
     {
       icon: SlidersHorizontal,
       title: "Adaptive Scoping",
       description:
-        "Forget rigid, bloated packages. We identify your specific growth bottleneck and build a custom scope to solve it—nothing more, nothing less.",
+        "Forget rigid, bloated packages. We identify your specific growth bottleneck and build a custom scope to solve it—nothing more, nothing less",
     },
     {
       icon: UserCheck,
       title: "Founder Alignment",
       description:
-        'We understand the nuance of personal branding. We capture your "soul" and translate it into a strategy that feels genuine, not manufactured.',
+        'We understand the nuance of personal branding. We capture your "soul" and translate it into a strategy that feels genuine, not manufactured',
     },
     {
       icon: GitBranch,
       title: "Content Ecosystems",
       description:
-        "A narrative shouldn't break across platforms. We build cohesive systems that scale your message from LinkedIn to deep-dive newsletters.",
+        "A narrative shouldn't break across platforms. We build cohesive systems that scale your message from LinkedIn to deep-dive newsletters",
     },
     {
       icon: BarChart3,
       title: "Revenue-Led Logic",
       description:
-        "Content is a business asset, not a vanity project. Every narrative pivot is aligned with your specific revenue goals and growth targets.",
+        "Content is a business asset, not a vanity project. Every narrative pivot is aligned with your specific revenue goals and growth targets",
     },
   ];
 
@@ -77,7 +77,7 @@ export function Results() {
 
         <div className="results-cta">
           <p className="cta-text">
-            Not a promise. <span className="cta-highlight">A guarantee.</span>
+            Not a promise. <span className="cta-highlight">A guarantee</span>
           </p>
         </div>
 
@@ -108,7 +108,7 @@ export function Results() {
 
           <p className="flux-intro">
             Once you build a narrative that resonates, you stop chasing attention
-            and start commanding it.
+            and start commanding it
           </p>
 
           <div className="flux-grid">

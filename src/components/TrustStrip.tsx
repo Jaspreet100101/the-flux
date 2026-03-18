@@ -53,8 +53,8 @@ export function TrustStrip() {
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
         viewport={{ once: true }}
       >
-        Content is a Liability.<br />
-        <em>Systems</em> are <em>Assets.</em>
+        Content is a Liability<br />
+        <em>Systems</em> are <em>Assets</em>
       </motion.h2>
 
       {/* Description */}
@@ -70,9 +70,9 @@ export function TrustStrip() {
           inconsistent logic. We replace the chaos with a{" "}
           <span className="trust-desc-highlight">narrative infrastructure</span>{" "}
           designed for founders who value{" "}
-          <span className="trust-desc-highlight">leverage over vanity</span>.
+          <span className="trust-desc-highlight">leverage over vanity</span>
           We don't just edit; we architect the engine that makes your authority
-          compound.
+          compound
         </p>
       </motion.div>
 
@@ -84,6 +84,7 @@ export function TrustStrip() {
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.24 }}
         viewport={{ once: true }}
       >
+        <div className="trust-row-divider" />
         {/* Row 1 — Right to Left */}
         <div className="trust-scroll-wrapper">
           <ul className="trust-scroll trust-scroll--rtl">
@@ -91,7 +92,7 @@ export function TrustStrip() {
               <li key={i} className="trust-logo">
                 <span className="trust-logo-icon">{item.icon}</span>
                 <span className="trust-logo-text">{item.label}</span>
-                <span className="trust-sep" />
+                {/* <span className="trust-sep" /> */}
               </li>
             ))}
           </ul>
@@ -106,11 +107,12 @@ export function TrustStrip() {
               <li key={i} className="trust-logo">
                 <span className="trust-logo-icon">{item.icon}</span>
                 <span className="trust-logo-text">{item.label}</span>
-                <span className="trust-sep" />
+                {/* <span className="trust-sep" /> */}
               </li>
             ))}
           </ul>
         </div>
+        <div className="trust-row-divider" />
       </motion.div>
 
     </section>

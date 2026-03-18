@@ -510,7 +510,7 @@ export function OnboardingModal({
                     >
                       <div style={css.confirmBanner}>
                         <Check size={14} style={{ flexShrink: 0 }} />
-                        <span>Application received — now lock in your call time below.</span>
+                        <span>Application received — now lock in your call time below</span>
                       </div>
                       <CalendlyEmbed
                         url={calendlyUrl}

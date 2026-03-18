@@ -40,7 +40,7 @@ export function ServicesSection() {
           </h2>
 
           <p className="services-subtext">
-            Positioning architecture, content systems, and distribution frameworks engineered for authority and scalable impact.
+            Positioning architecture, content systems, and distribution frameworks engineered for authority and scalable impact
           </p>
         </div>
 
