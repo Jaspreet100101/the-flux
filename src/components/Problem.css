@@ -14,19 +14,6 @@
   isolation: isolate;
 }
 
-/* ── Ambient mesh ── */
-/* .gradient-mesh-problem {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 70% 50% at 50% 40%,  rgba(73, 94, 250, 0.055) 0%, transparent 65%),
-    radial-gradient(ellipse 45% 40% at 15% 75%,  rgba(167, 139, 250, 0.04) 0%, transparent 60%),
-    radial-gradient(ellipse 45% 40% at 85% 25%,  rgba(79, 142, 247, 0.04) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
-  animation: mesh-breathe 12s ease-in-out infinite alternate;
-} */
-
 @keyframes mesh-breathe {
   from { opacity: 0.7; }
   to   { opacity: 1; }
@@ -76,6 +63,7 @@
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  user-select: none;
 }
 
 .problem-badge::before {
@@ -83,7 +71,7 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #a78bfa;
+  background: #d4a84b; /* ← updated */
   flex-shrink: 0;
   animation: pulse-dot 2.2s ease-in-out infinite;
 }
@@ -100,26 +88,29 @@
   letter-spacing: -0.035em;
   color: #f5f3ef;
   margin: 0 0 20px;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  user-select: none;
 }
 
 .problem-highlight {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   color: #f5f3ef;
   -webkit-text-fill-color: #f5f3ef;
+  user-select: none;
 }
 
 .problem-subtitle {
+  font-family: 'Noto Serif', serif;
+  font-style: italic;
   font-size: clamp(0.9rem, 1.3vw, 1.05rem);
-  font-family: 'Outfit', sans-serif;
   color: rgba(255, 255, 255, 0.38);
   max-width: 560px;
   margin: 0 auto;
   line-height: 1.72;
   font-weight: 400;
   letter-spacing: 0.01em;
+  user-select: none;
 }
 
 /* ============================================
@@ -151,10 +142,10 @@
   cursor: default;
 
   transition:
-    transform 0.38s cubic-bezier(0.23, 1, 0.32, 1),
-    border-color 0.35s ease,
-    box-shadow 0.38s ease,
-    background 0.35s ease;
+    transform      0.38s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color   0.35s ease,
+    box-shadow     0.38s ease,
+    background     0.35s ease;
 }
 
 /* Top-edge specular highlight */
@@ -185,7 +176,7 @@
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(167, 139, 250, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(212, 168, 75, 0.12) 0%, transparent 70%); /* ← updated */
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
@@ -198,7 +189,7 @@
   background: rgba(255, 255, 255, 0.045);
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(167, 139, 250, 0.12);
+    0 0 0 1px rgba(212, 168, 75, 0.12); /* ← updated */
 }
 
 .problem-item:hover::after {
@@ -224,8 +215,8 @@
 
   transition:
     border-color 0.35s ease,
-    background 0.35s ease,
-    box-shadow 0.35s ease;
+    background   0.35s ease,
+    box-shadow   0.35s ease;
 
   animation: iconFloat 3.8s ease-in-out infinite;
 }
@@ -238,11 +229,11 @@
 .problem-item:nth-child(6) .problem-icon { animation-delay: 1.75s; }
 
 .problem-item:hover .problem-icon {
-  border-color: rgba(167, 139, 250, 0.45);
-  background: rgba(167, 139, 250, 0.08);
+  border-color: rgba(212, 168, 75, 0.45);       /* ← updated */
+  background: rgba(212, 168, 75, 0.08);          /* ← updated */
   box-shadow:
-    0 0 0 3px rgba(167, 139, 250, 0.07),
-    0 0 18px rgba(167, 139, 250, 0.18);
+    0 0 0 3px rgba(212, 168, 75, 0.07),          /* ← updated */
+    0 0 18px rgba(212, 168, 75, 0.18);           /* ← updated */
 }
 
 /* Icon inner symbol */
@@ -270,6 +261,7 @@
   line-height: 1.25;
   position: relative;
   z-index: 1;
+  user-select: none;
 }
 
 .problem-text {
@@ -282,6 +274,7 @@
   max-width: 100%;
   position: relative;
   z-index: 1;
+  user-select: none;
 }
 
 /* ── Conclusion — hidden ── */

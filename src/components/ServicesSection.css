@@ -15,20 +15,6 @@
   isolation: isolate;
 }
 
-/* ── Ambient mesh ── */
-/* .services-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 65% 55% at 50% 45%,  rgba(73, 94, 250, 0.055)  0%, transparent 65%),
-    radial-gradient(ellipse 40% 35% at 88% 72%,  rgba(167, 139, 250, 0.04) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 35% at 12% 28%,  rgba(79, 142, 247, 0.04)  0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
-  animation: mesh-breathe 13s ease-in-out infinite alternate;
-} */
-
 @keyframes mesh-breathe {
   from { opacity: 0.65; }
   to   { opacity: 1; }
@@ -78,6 +64,7 @@
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  user-select: none;
 }
 
 .services-badge::before {
@@ -85,7 +72,7 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #4f8ef7;
+  background: #d4a84b; /* ← updated */
   flex-shrink: 0;
   animation: pulse-dot 2.2s ease-in-out infinite;
 }
@@ -103,6 +90,7 @@
   letter-spacing: -0.035em;
   color: #f5f3ef;
   margin: 0 0 20px;
+  user-select: none;
 }
 
 .services-title-highlight {
@@ -111,6 +99,7 @@
   font-weight: 600;
   color: #f5f3ef;
   -webkit-text-fill-color: #f5f3ef;
+  user-select: none;
 }
 
 .services-subtext {
@@ -122,6 +111,7 @@
   line-height: 1.72;
   font-weight: 400;
   letter-spacing: 0.01em;
+  user-select: none;
 }
 
 /* ============================================
@@ -186,7 +176,7 @@
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(73, 94, 250, 0.13) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(212, 168, 75, 0.13) 0%, transparent 70%); /* ← updated */
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
@@ -199,7 +189,7 @@
   background: rgba(255, 255, 255, 0.045);
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(73, 94, 250, 0.14);
+    0 0 0 1px rgba(212, 168, 75, 0.14); /* ← updated */
 }
 
 .service-item:hover::after {
@@ -239,11 +229,11 @@
 .service-item:nth-child(6) .service-icon { animation-delay: 1.75s; }
 
 .service-item:hover .service-icon {
-  border-color: rgba(73, 94, 250, 0.5);
-  background: rgba(73, 94, 250, 0.10);
+  border-color: rgba(212, 168, 75, 0.50);       /* ← updated */
+  background: rgba(212, 168, 75, 0.10);          /* ← updated */
   box-shadow:
-    0 0 0 3px rgba(73, 94, 250, 0.07),
-    0 0 18px rgba(73, 94, 250, 0.20);
+    0 0 0 3px rgba(212, 168, 75, 0.07),          /* ← updated */
+    0 0 18px rgba(212, 168, 75, 0.20);           /* ← updated */
 }
 
 /* Icon inner symbol */
@@ -271,6 +261,7 @@
   line-height: 1.25;
   position: relative;
   z-index: 1;
+  user-select: none;
 }
 
 .service-desc {
@@ -283,6 +274,7 @@
   max-width: 100%;
   position: relative;
   z-index: 1;
+  user-select: none;
 }
 
 /* ── Keyframes ── */
@@ -312,7 +304,6 @@
   }
 
   .services-header { margin-bottom: 48px; }
-
   .services-title  { font-size: 2.2rem; }
 }
 

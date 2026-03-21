@@ -1,45 +1,41 @@
 html {
   scroll-behavior: smooth;
 }
+
 /* ============================================
    PREMIUM GLOBAL SCROLLBAR
    ============================================ */
 
 /* width */
-
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 /* track */
-
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #1a1200;
 }
 
 /* thumb */
-
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(
     180deg,
-    #c7a27a,
-    #8c6a52
+    #f0d878,
+    #d4a84b
   );
   border-radius: 20px;
-  border: 2px solid #0a0a0a;
+  border: 2px solid #1a1200;
 }
 
 /* hover */
-
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(
     180deg,
-    #d4b18c,
-    #a17858
+    #f5e49a,
+    #c99b3e
   );
-
   box-shadow:
-    0 0 8px rgba(176,137,104,0.5);
+    0 0 8px rgba(240, 216, 120, 0.6);
 }
 
 /* ============================================
@@ -48,5 +44,5 @@ html {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #8c6a52 #0a0a0a;
+  scrollbar-color: #d4a84b #1a1200;
 }

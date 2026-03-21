@@ -102,14 +102,19 @@ export function Results() {
         {/* Why Founders Choose The Flux */}
 
         <div className="flux-section">
-          <h3 className="flux-title">
-            Why Founders and Strategists Choose The Flux
-          </h3>
 
-          <p className="flux-intro">
-            Once you build a narrative that resonates, you stop chasing attention
-            and start commanding it
+        <div className="flux-header">
+          {/* <span className="problem-badge">Features</span> */}
+
+          <h2 className="flux-title">
+            Why <span className="flux-highlight">Founders</span> and Strategists{" "}
+            <span className="flux-highlight">Choose</span>  The Flux
+          </h2>
+
+          <p className="flux-subtitle">
+            Once you try it, you'll never go anywhere else for video editing. Seriously
           </p>
+        </div>
 
           <div className="flux-grid">
             {fluxReasons.map((item, index) => {

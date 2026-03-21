@@ -1,27 +1,18 @@
 /* ─────────────────────────────────────────────
    ShowreelSection — Luxury Cinematic Theme
-   v5: smaller cards, clean fit
    ───────────────────────────────────────────── */
-
-/* @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Geist+Mono:wght@300;400&display=swap'); */
 
 /* ── Tokens ── */
 :root {
   --reel-bg:      #0a0a0b;
   --reel-surface: #111114;
   --reel-border:  rgba(255, 255, 255, 0.07);
-  --reel-accent:  #e8c97a;
+  --reel-accent:  #d4a84b;                  /* ← tightened to palette */
   --reel-muted:   rgba(255, 255, 255, 0.35);
   --card-w:       180px;
   --card-h:       280px;
   --card-gap:     16px;
   --tilt:         -2.6deg;
-  /*
-   * Band height needs to be tall enough to show the rotated strip
-   * without the corners poking out of the section.
-   * At -4deg on 280px tall cards the corner overshoot is ~20px each side,
-   * so 280 + 40px buffer = 320px is the minimum clean clip height.
-   */
   --band-h:       320px;
 }
 
@@ -31,7 +22,6 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  /* padding: 80px 0 90px; */
 }
 
 /* Film grain */
@@ -51,7 +41,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 80% 50% at 50% 60%, rgba(232,201,122,0.055) 0%, transparent 70%);
+  background: radial-gradient(ellipse 80% 50% at 50% 60%, rgba(212, 168, 75, 0.055) 0%, transparent 70%); /* ← updated */
   pointer-events: none;
   z-index: 0;
 }
@@ -72,10 +62,17 @@
   text-transform: uppercase;
   margin: 0 0 12px;
   line-height: 1;
-  background: linear-gradient(115deg, #c8a85a 0%, #f0dfa0 38%, #e8c97a 60%, #b8904a 100%);
+  background: linear-gradient(
+    115deg,
+    #c99b3e 0%,    /* ← updated */
+    #f0d878 38%,   /* ← updated */
+    #d4a84b 60%,   /* ← updated */
+    #c99b3e 100%   /* ← updated */
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  user-select: none;
 }
 
 .reel-sub {
@@ -86,24 +83,30 @@
   text-transform: uppercase;
   color: var(--reel-muted);
   margin: 0;
+  user-select: none;
 }
+
 .reel-band {
-    position: relative;
-    z-index: 1;
-    height: 35rem;
-    width: 100%;
-    /* height: var(--band-h); */
-    overflow: hidden;
-    pointer-events: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), radial-gradient(ellipse 80% 120% at 50% 50%, black 10%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
-    -webkit-mask-composite: source-in, xor;
-    mask-composite: intersect;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), radial-gradient(ellipse 80% 120% at 50% 50%, black 10%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
-    -webkit-mask-composite: source-in;
+  position: relative;
+  z-index: 1;
+  height: 35rem;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  mask-image:
+    linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%),
+    radial-gradient(ellipse 80% 120% at 50% 50%, black 10%, rgba(0,0,0,0.5) 50%, transparent 100%);
+  -webkit-mask-composite: source-in, xor;
+  mask-composite: intersect;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%),
+    radial-gradient(ellipse 80% 120% at 50% 50%, black 10%, rgba(0,0,0,0.5) 50%, transparent 100%);
+  -webkit-mask-composite: source-in;
 }
+
 /* ── Track ── */
 .reel-ul {
   display: flex;
@@ -113,7 +116,6 @@
   margin: 0;
   padding: 0;
   width: max-content;
-  /* height: 100%; */
   animation: reel-scroll 38s linear infinite;
 }
 
@@ -131,9 +133,9 @@
   overflow: hidden;
   background: var(--reel-surface);
   box-shadow:
-    0 4px 12px rgba(0,0,0,0.4),
-    0 16px 40px rgba(0,0,0,0.55),
-    0 32px 64px rgba(0,0,0,0.35),
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    0 16px 40px rgba(0, 0, 0, 0.55),
+    0 32px 64px rgba(0, 0, 0, 0.35),
     inset 0 0 0 1px var(--reel-border);
 }
 
@@ -142,7 +144,13 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.10) 0%, transparent 45%, transparent 55%, rgba(255,255,255,0.04) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.10) 0%,
+    transparent 45%,
+    transparent 55%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
   z-index: 2;
   pointer-events: none;
 }

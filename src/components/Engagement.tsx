@@ -40,8 +40,6 @@ export function Engagement() {
             Strategic
             <br />
             <span className="engagement-highlight">Partnerships</span>
-            <br />
-            Not Packages
           </h2>
           <p className="engagement-subtitle">
             We build scopes around your bottleneck — nothing more, nothing less

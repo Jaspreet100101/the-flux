@@ -15,20 +15,6 @@
   isolation: isolate;
 }
 
-/* ── Ambient mesh ── */
-/* .process-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 50% 40%,  rgba(167, 139, 250, 0.05) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 35% at 10% 65%,  rgba(73,  94, 250, 0.04)  0%, transparent 60%),
-    radial-gradient(ellipse 40% 35% at 90% 30%,  rgba(79, 142, 247, 0.04)  0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
-  animation: mesh-breathe 13s ease-in-out infinite alternate;
-} */
-
 @keyframes mesh-breathe {
   from { opacity: 0.65; }
   to   { opacity: 1; }
@@ -78,6 +64,7 @@
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  user-select: none;
 }
 
 .process-badge::before {
@@ -85,7 +72,7 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #a78bfa;
+  background: #d4a84b; /* ← updated */
   flex-shrink: 0;
   animation: pulse-dot 2.2s ease-in-out infinite;
 }
@@ -96,24 +83,27 @@
 }
 
 .process-header h2 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(2.8rem, 6vw, 5rem);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.035em;
   color: #f5f3ef;
   margin: 0 0 20px;
+  user-select: none;
 }
 
 .process-header h2 em {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Noto Serif', serif;
   font-style: italic;
   font-weight: 600;
   color: #f5f3ef;
+  user-select: none;
 }
 
 .process-header p {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Noto Serif', serif;
+  font-style: italic;
   font-size: clamp(0.9rem, 1.3vw, 1.05rem);
   color: rgba(255, 255, 255, 0.38);
   max-width: 560px;
@@ -121,6 +111,7 @@
   line-height: 1.72;
   font-weight: 400;
   letter-spacing: 0.01em;
+  user-select: none;
 }
 
 /* ============================================
@@ -159,7 +150,7 @@
   width: 3px;
   height: 60px;
   border-radius: 3px;
-  background: linear-gradient(to bottom, transparent, #a78bfa, transparent);
+  background: linear-gradient(to bottom, transparent, #d4a84b, transparent); /* ← updated */
   animation: line-travel 4s ease-in-out infinite;
 }
 
@@ -184,8 +175,6 @@
   gap: 0;
   text-align: center;
 
-  /* background: rgba(255, 255, 255, 0.025); */
-  /* border: 1px solid rgba(255, 255, 255, 0.07); */
   border-radius: 20px;
   padding: 32px 36px;
   position: relative;
@@ -228,7 +217,7 @@
   width: 200px;
   height: 160px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(167, 139, 250, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(212, 168, 75, 0.12) 0%, transparent 70%); /* ← updated */
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
@@ -241,7 +230,7 @@
   background: rgba(255, 255, 255, 0.04);
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(167, 139, 250, 0.12);
+    0 0 0 1px rgba(212, 168, 75, 0.12); /* ← updated */
 }
 
 .timeline-step:hover::after {
@@ -262,10 +251,11 @@
   font-size: 0.65rem;
   letter-spacing: 0.18em;
   font-weight: 500;
-  color: rgba(167, 139, 250, 0.6);
+  color: rgba(212, 168, 75, 0.6); /* ← updated */
   text-transform: uppercase;
   display: block;
   margin-bottom: 6px;
+  user-select: none;
 }
 
 .timeline-content h3 {
@@ -276,6 +266,7 @@
   color: #f5f3ef;
   margin: 0 0 10px;
   line-height: 1.25;
+  user-select: none;
 }
 
 .timeline-content p {
@@ -287,6 +278,7 @@
   letter-spacing: 0.005em;
   max-width: 380px;
   margin: 0 auto;
+  user-select: none;
 }
 
 /* ── Icon ── */
@@ -325,11 +317,11 @@
 .timeline-step:nth-child(6) .timeline-icon { animation-delay: 1.75s; }
 
 .timeline-step:hover .timeline-icon {
-  border-color: rgba(167, 139, 250, 0.5);
-  background: rgba(167, 139, 250, 0.09);
+  border-color: rgba(212, 168, 75, 0.50);       /* ← updated */
+  background: rgba(212, 168, 75, 0.09);          /* ← updated */
   box-shadow:
-    0 0 0 3px rgba(167, 139, 250, 0.07),
-    0 0 18px rgba(167, 139, 250, 0.20);
+    0 0 0 3px rgba(212, 168, 75, 0.07),          /* ← updated */
+    0 0 18px rgba(212, 168, 75, 0.20);           /* ← updated */
 }
 
 /* Icon inner symbol */
@@ -381,7 +373,6 @@
     gap: 20px;
   }
 
-  /* On desktop: each step is a row with icon in center, content on each side */
   .timeline-step {
     flex-direction: row;
     align-items: center;

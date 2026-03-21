@@ -33,7 +33,7 @@ export function ProcessTimeline() {
         {/* Header */}
         <div className="process-header">
           <h2>
-            Built for <em>Leverage</em>. Understood in Days
+            Built for <em>Leverage</em> Understood in Days
           </h2>
           <p>
             Begin your narrative journey in three structural steps

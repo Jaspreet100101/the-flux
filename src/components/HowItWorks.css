@@ -14,19 +14,6 @@
   isolation: isolate;
 }
 
-/* ── Ambient mesh ── */
-/* .gradient-mesh-how-it-works {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 65% 55% at 50% 42%,  rgba(73, 94, 250, 0.055)  0%, transparent 65%),
-    radial-gradient(ellipse 40% 35% at 10% 68%,  rgba(167, 139, 250, 0.04) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 35% at 90% 28%,  rgba(79, 142, 247, 0.04)  0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
-  animation: mesh-breathe 13s ease-in-out infinite alternate;
-} */
-
 @keyframes mesh-breathe {
   from { opacity: 0.65; }
   to   { opacity: 1; }
@@ -70,6 +57,7 @@
   letter-spacing: -0.035em;
   color: #f5f3ef;
   margin: 0;
+  user-select: none;
 }
 
 .how-it-works-highlight {
@@ -77,12 +65,13 @@
   font-style: italic;
   font-weight: 600;
   display: inline-block;
-  background: linear-gradient(120deg, #a78bfa 0%, #7bb4fc 50%, #a78bfa 100%);
+  background: linear-gradient(120deg, #d4a84b 0%, #f0d878 45%, #c99b3e 75%, #f0d878 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: text-shimmer 5s linear infinite;
+  user-select: none;
 }
 
 @keyframes text-shimmer {
@@ -102,16 +91,16 @@
 /* Horizontal connector line — desktop */
 .steps-connector {
   position: absolute;
-  top: 56px; /* vertically centered on icon */
+  top: 56px;
   left: 8%;
   right: 8%;
   height: 1px;
   background: linear-gradient(
     to right,
     transparent 0%,
-    rgba(255, 255, 255, 0.07) 15%,
-    rgba(167, 139, 250, 0.15) 50%,
-    rgba(255, 255, 255, 0.07) 85%,
+    rgba(255, 255, 255, 0.07)  15%,
+    rgba(212, 168, 75,  0.18)  50%,
+    rgba(255, 255, 255, 0.07)  85%,
     transparent 100%
   );
   z-index: 0;
@@ -125,8 +114,8 @@
   left: 0;
   transform: translateY(-50%);
   width: 40px;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #a78bfa, transparent);
+  height: 2px;
+  background: linear-gradient(to right, transparent, #f0d878, transparent);
   animation: connector-travel 4s ease-in-out infinite;
 }
 
@@ -174,8 +163,8 @@
   background: linear-gradient(
     to right,
     transparent,
-    rgba(255, 255, 255, 0.10) 40%,
-    rgba(255, 255, 255, 0.10) 60%,
+    rgba(240, 216, 120, 0.12) 40%,
+    rgba(240, 216, 120, 0.12) 60%,
     transparent
   );
   z-index: 1;
@@ -190,7 +179,7 @@
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(73, 94, 250, 0.13) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(212, 168, 75, 0.13) 0%, transparent 70%);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
@@ -199,11 +188,11 @@
 
 .step-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(255, 255, 255, 0.13);
-  background: rgba(255, 255, 255, 0.042);
+  border-color: rgba(212, 168, 75, 0.22);
+  background: rgba(212, 168, 75, 0.04);
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(73, 94, 250, 0.13);
+    0 0 0 1px rgba(212, 168, 75, 0.13);
 }
 
 .step-card:hover::after {
@@ -212,7 +201,7 @@
 
 /* ── Step number ── */
 .step-number-bg {
-  display: none; /* replaced by card surface */
+  display: none;
 }
 
 .step-number {
@@ -221,11 +210,12 @@
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(73, 94, 250, 0.55);
+  color: rgba(212, 168, 75, 0.55);
   margin-bottom: 16px;
   display: block;
   position: relative;
   z-index: 2;
+  user-select: none;
 }
 
 /* ── Icon wrapper ── */
@@ -249,11 +239,11 @@
 }
 
 .step-card:hover .step-icon-wrapper {
-  border-color: rgba(73, 94, 250, 0.45);
-  background: rgba(73, 94, 250, 0.09);
+  border-color: rgba(212, 168, 75, 0.45);
+  background: rgba(212, 168, 75, 0.09);
   box-shadow:
-    0 0 0 3px rgba(73, 94, 250, 0.07),
-    0 0 14px rgba(73, 94, 250, 0.20);
+    0 0 0 3px rgba(212, 168, 75, 0.07),
+    0 0 14px rgba(212, 168, 75, 0.22);
   transform: scale(1.08);
 }
 
@@ -273,7 +263,7 @@
 }
 
 .step-card:hover .step-icon {
-  color: rgba(73, 94, 250, 0.95);
+  color: #f0d878;
   transform: scale(1.15);
 }
 
@@ -288,6 +278,7 @@
   line-height: 1.25;
   position: relative;
   z-index: 2;
+  user-select: none;
 }
 
 .step-description {
@@ -300,6 +291,7 @@
   letter-spacing: 0.005em;
   position: relative;
   z-index: 2;
+  user-select: none;
 }
 
 /* ── Bottom accent bar ── */
@@ -312,8 +304,8 @@
   background: linear-gradient(
     to right,
     transparent,
-    rgba(73, 94, 250, 0.45) 40%,
-    rgba(167, 139, 250, 0.35) 60%,
+    rgba(212, 168, 75,  0.45) 40%,
+    rgba(240, 216, 120, 0.35) 60%,
     transparent
   );
   opacity: 0;
@@ -332,8 +324,8 @@
   text-align: center;
   padding: 56px 40px;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  background: rgba(255, 255, 255, 0.018);
+  border: 1px solid rgba(212, 168, 75, 0.12);
+  background: rgba(212, 168, 75, 0.018);
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(8px);
@@ -351,8 +343,8 @@
   background: linear-gradient(
     to right,
     transparent,
-    rgba(73, 94, 250, 0.32)   40%,
-    rgba(167, 139, 250, 0.32) 60%,
+    rgba(212, 168, 75,  0.35) 40%,
+    rgba(240, 216, 120, 0.35) 60%,
     transparent
   );
 }
@@ -367,7 +359,7 @@
   width: 600px;
   height: 200px;
   border-radius: 50%;
-  background: rgba(73, 94, 250, 0.05);
+  background: rgba(212, 168, 75, 0.06);
   filter: blur(80px);
   pointer-events: none;
   z-index: 0;
@@ -383,6 +375,7 @@
   letter-spacing: -0.03em;
   position: relative;
   z-index: 1;
+  user-select: none;
 }
 
 .footer-accent {
@@ -390,12 +383,13 @@
   font-style: italic;
   font-weight: 600;
   display: inline-block;
-  background: linear-gradient(120deg, #a78bfa 0%, #7bb4fc 50%, #a78bfa 100%);
+  background: linear-gradient(120deg, #d4a84b 0%, #f0d878 45%, #c99b3e 75%, #f0d878 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: text-shimmer 5s linear infinite;
+  user-select: none;
 }
 
 .footer-secondary {
@@ -409,6 +403,7 @@
   line-height: 1.6;
   position: relative;
   z-index: 1;
+  user-select: none;
 }
 
 /* ============================================

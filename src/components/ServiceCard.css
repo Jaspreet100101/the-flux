@@ -9,7 +9,7 @@
 }
 
 .service-card:hover {
-  border-color: rgba(99, 102, 241, 0.4);
+  border-color: rgba(212, 168, 75, 0.4); /* ← updated */
 }
 
 .service-card-glow {
@@ -18,7 +18,7 @@
   border-radius: 1rem;
   background: linear-gradient(
     to bottom,
-    rgba(99, 102, 241, 0.08),
+    rgba(212, 168, 75, 0.08), /* ← updated */
     transparent
   );
   opacity: 0;
@@ -38,7 +38,7 @@
   width: 56px;
   height: 56px;
   border-radius: 0.75rem;
-  background: rgba(99, 102, 241, 0.1);
+  background: rgba(212, 168, 75, 0.10); /* ← updated */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,7 +47,7 @@
 }
 
 .service-card:hover .service-icon-wrapper {
-  background: rgba(99, 102, 241, 0.2);
+  background: rgba(212, 168, 75, 0.20); /* ← updated */
 }
 
 .service-icon {
@@ -55,7 +55,7 @@
   top: +12px;
   width: 28px;
   height: 28px;
-  color: #6366f1;
+  color: #d4a84b; /* ← updated */
 }
 
 .service-title {
